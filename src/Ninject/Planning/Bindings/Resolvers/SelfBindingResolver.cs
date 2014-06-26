@@ -58,7 +58,8 @@ namespace Ninject.Planning.Bindings.Resolvers
                    && !service.IsAbstract
                    && !service.IsValueType
                    && service != typeof(string)
-                   && !service.ContainsGenericParameters;
+                   && !service.ContainsGenericParameters
+                   && service.GetConstructors(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance).Any();
         }
     }
 }
